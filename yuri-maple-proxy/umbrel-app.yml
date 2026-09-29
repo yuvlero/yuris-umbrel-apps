@@ -3,7 +3,7 @@ id: yuri-maple-proxy
 category: ai
 icon: https://raw.githubusercontent.com/yuvlero/maple-proxy-umbrel/main/yuri-maple-proxy/icon.png
 name: Maple Proxy
-version: "0.3.3"
+version: "0.3.4"
 tagline: OpenAI-compatible gateway to Maple's TEE inference, on your Umbrel
 description: >-
   Maple Proxy is the bridge between any OpenAI-compatible client and Maple's
