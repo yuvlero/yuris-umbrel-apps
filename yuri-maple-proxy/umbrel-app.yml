@@ -1,0 +1,54 @@
+manifestVersion: 1.1
+id: yuri-maple-proxy
+category: ai
+name: Maple Proxy
+version: "0.3.2"
+tagline: OpenAI-compatible gateway to Maple's TEE inference, on your Umbrel
+description: >-
+  Maple Proxy is the bridge between any OpenAI-compatible client and Maple's
+  TEE (Trusted Execution Environment) inference. Your prompts are encrypted to
+  the enclave; Maple cannot read them.
+
+
+  **This app is a service, not a website.** It has no dashboard — it exists so
+  that other apps on your Umbrel can use Maple for inference.
+
+
+  **How other apps connect** (from any app on umbrelOS):
+
+      Base URL: http://yuri-maple-proxy_server_1:8080/v1
+      API key:  your own Maple API key (create one at trymaple.ai)
+
+  Example — the Hermes Agent app:
+
+      hermes config set model.provider custom
+      hermes config set model.base_url http://yuri-maple-proxy_server_1:8080/v1
+      hermes config set model.api_key YOUR_MAPLE_KEY
+      hermes config set model.default kimi-k3
+
+
+  **Bring your own key.** No MAPLE_API_KEY is baked into this app, so each
+  client passes its own key and bills its own account — Maple's recommended
+  production setup. To make one key the default for every client instead, add
+  MAPLE_API_KEY to the app's environment in docker-compose.yml.
+
+
+  **Streaming only.** Maple returns streamed responses exclusively; every
+  request must set stream=true. Clients that cannot stream will not work.
+
+
+  Note: Maple currently serves no models that run locally — all inference
+  happens in Maple's enclave, so this app uses almost no CPU or RAM on your
+  Umbrel. Nothing is stored on disk.
+developer: OpenSecret
+website: https://trymaple.ai
+dependencies: []
+repo: https://github.com/opensecretcloud/maple-proxy
+support: https://blog.trymaple.ai/maple-proxy-documentation/
+port: 8080
+path: ""
+submitter: Yuri
+submission: ""
+releaseNotes: >-
+  Pins ghcr.io/opensecretcloud/maple-proxy 0.3.2 (multi-arch: linux/amd64 for
+  Umbrel Home, linux/arm64 for Raspberry Pi).

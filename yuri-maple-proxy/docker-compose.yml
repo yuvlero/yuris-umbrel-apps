@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  # Umbrel's app proxy. Other apps do NOT need it — they reach the service
+  # container directly on the shared umbrel network (see APP_HOST below).
+  # It exists so the app installs and lists like every other app, and so the
+  # proxy is reachable from the LAN at umbrel.local:<port> behind Umbrel auth.
+  app_proxy:
+    environment:
+      # Format is <app-id>_<docker-service-name>_1
+      APP_HOST: yuri-maple-proxy_server_1
+      APP_PORT: 8080
+
+  server:
+    # Tag and index digest pinned together (multi-arch: linux/amd64 + linux/arm64).
+    image: ghcr.io/opensecretcloud/maple-proxy:0.3.2@sha256:cdde1f73418cd92794963cda32c2b50c5b2548eb78aab6060026d76a391af73a
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      MAPLE_BACKEND_URL: "https://enclave.trymaple.ai"
+      MAPLE_ENABLE_CORS: "true"
+      RUST_LOG: "info"
+      # MAPLE_API_KEY is deliberately NOT set: each client app supplies its own
+      # Maple key (per-request Authorization header), so no single key is baked
+      # into this app and every app bills its own account. Maple's own
+      # production guidance is to leave it unset for multi-user deployments.
+      # Set it only if you want one key as the default for every client.
