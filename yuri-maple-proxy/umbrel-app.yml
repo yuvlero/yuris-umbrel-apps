@@ -1,6 +1,7 @@
 manifestVersion: 1.1
 id: yuri-maple-proxy
 category: ai
+icon: https://raw.githubusercontent.com/yuvlero/maple-proxy-umbrel/main/yuri-maple-proxy/icon.png
 name: Maple Proxy
 version: "0.3.2"
 tagline: OpenAI-compatible gateway to Maple's TEE inference, on your Umbrel
@@ -46,6 +47,7 @@ dependencies: []
 repo: https://github.com/opensecretcloud/maple-proxy
 support: https://blog.trymaple.ai/maple-proxy-documentation/
 port: 8080
+gallery: []
 path: ""
 submitter: Yuri
 submission: ""
