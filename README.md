@@ -5,15 +5,6 @@ system-wide service: any app on the box can then use Maple's TEE inference
 through an OpenAI-compatible endpoint. Install it once; it restarts with the
 box and updates by bumping `version` in this repo.
 
-## Why this shape (decided 2026-09-29)
-
-| Option | Verdict |
-|---|---|
-| **Community app store app (this)** | **Chosen.** A real umbrelOS app: managed lifecycle, auto-restart, no host port conflicts, and other apps reach it by container name on the shared `umbrel_main_network` — exactly the "any app can use it" requirement. |
-| Portainer | Rejected as primary: Portainer runs its **own nested Docker daemon** (`docker:dind` on a private `dind0` bridge), so its containers are *not* on the umbrel network. Reachable only via a published host port, and bind-mount data is lost when the Portainer app restarts. |
-| Manual `docker run` over SSH | Works, but lives outside umbrelOS app management and needs SSH access to the box. Keep as a last resort. |
-| Direct `enclave.trymaple.ai` from each app | Not used: the proxy is what handles TEE attestation and the encryption handshake. Only the proxy is documented for non-desktop clients. |
-
 ## Install
 
 1. **Push this repo to GitHub** (public). It can be a template copy of
