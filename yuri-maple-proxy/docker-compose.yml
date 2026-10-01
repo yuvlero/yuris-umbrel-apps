@@ -12,7 +12,7 @@ services:
       APP_PORT: 8080
 
   server:
-    # App packaging version 0.3.4. Tag and index digest pinned (multi-arch: linux/amd64 + linux/arm64).
+    # Tag and index digest pinned together (multi-arch: linux/amd64 + linux/arm64).
     image: ghcr.io/opensecretcloud/maple-proxy:0.3.2@sha256:cdde1f73418cd92794963cda32c2b50c5b2548eb78aab6060026d76a391af73a
     restart: on-failure
     stop_grace_period: 1m

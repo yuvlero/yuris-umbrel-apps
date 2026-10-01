@@ -3,7 +3,7 @@ id: yuri-maple-proxy
 category: ai
 icon: https://raw.githubusercontent.com/yuvlero/yuris-umbrel-apps/main/yuri-maple-proxy/icon.png
 name: Maple Proxy
-version: "0.3.4"
+version: "0.3.2"
 tagline: OpenAI-compatible gateway to Maple's TEE inference, on your Umbrel
 description: >-
   Maple Proxy is the bridge between any OpenAI-compatible client and Maple's
@@ -52,7 +52,6 @@ path: ""
 submitter: Yuri
 submission: ""
 releaseNotes: >-
-  Store renamed to Yuri's Umbrel Apps. App packaging version 0.3.4. Container
-  remains pinned to ghcr.io/opensecretcloud/maple-proxy 0.3.2 (multi-arch:
-  linux/amd64 for Umbrel Home, linux/arm64 for Raspberry Pi) until OpenSecret
-  publishes a newer tag.
+  Store renamed to Yuri's Umbrel Apps. Maple Proxy packaging and container
+  both track OpenSecret maple-proxy 0.3.2 (multi-arch: linux/amd64 for Umbrel
+  Home, linux/arm64 for Raspberry Pi).

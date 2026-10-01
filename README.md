@@ -8,7 +8,7 @@ This store currently ships **Maple Proxy**. More apps can be added as sibling fo
 
 ## Maple Proxy
 
-System-wide OpenAI-compatible gateway to Maple's TEE inference. Install it once; it restarts with the box. Other apps on the Umbrel reach it at `http://yuri-maple-proxy_server_1:8080/v1`. Packaging version: **0.3.4** (container image currently pinned to OpenSecret's published `0.3.2` multi-arch build until a newer tag exists).
+System-wide OpenAI-compatible gateway to Maple's TEE inference. Install it once; it restarts with the box. Other apps on the Umbrel reach it at `http://yuri-maple-proxy_server_1:8080/v1`. Version: **0.3.2** (matches OpenSecret's published `maple-proxy` image).
 
 ### Install & configure
 
@@ -44,7 +44,7 @@ curl -N http://yuri-maple-proxy_server_1:8080/v1/chat/completions \
 ### Known constraints
 
 - **Streaming only.** Maple returns streamed responses exclusively; `stream=true` is mandatory on every request.
-- **Image pin.** Compose pins `ghcr.io/opensecretcloud/maple-proxy:0.3.2` + its index digest for reproducible installs. Bump the tag/digest and the `version:` in `umbrel-app.yml` when a newer release is published.
+- **Image pin.** Compose pins `ghcr.io/opensecretcloud/maple-proxy:0.3.2` + its index digest for reproducible installs. When OpenSecret ships a newer release, bump the tag/digest and the `version:` in `umbrel-app.yml` together.
 - **No MAPLE_API_KEY is baked in**, so each app passes its own key and bills its own account. Add the env var if you want one shared default key.
 - The proxy holds no state; nothing is written to `${APP_DATA_DIR}`.
 
