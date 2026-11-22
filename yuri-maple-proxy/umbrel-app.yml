@@ -3,7 +3,7 @@ id: yuri-maple-proxy
 category: ai
 icon: https://raw.githubusercontent.com/yuvlero/yuris-umbrel-apps/main/yuri-maple-proxy/icon.png
 name: Maple Proxy
-version: "0.3.2"
+version: "0.5.1"
 tagline: OpenAI-compatible gateway to Maple's TEE inference, on your Umbrel
 description: >-
   Maple Proxy is the bridge between any OpenAI-compatible client and Maple's
@@ -34,17 +34,13 @@ description: >-
   MAPLE_API_KEY to the app's environment in docker-compose.yml.
 
 
-  **Streaming only.** Maple returns streamed responses exclusively; every
-  request must set stream=true. Clients that cannot stream will not work.
-
-
   Note: Maple currently serves no models that run locally — all inference
   happens in Maple's enclave, so this app uses almost no CPU or RAM on your
   Umbrel. Nothing is stored on disk.
 developer: OpenSecret
 website: https://trymaple.ai
 dependencies: []
-repo: https://github.com/opensecretcloud/maple-proxy
+repo: https://github.com/MaplePrivacyLabs/Maple/tree/master/proxy
 support: https://blog.trymaple.ai/maple-proxy-documentation/
 port: 8080
 gallery: []
@@ -52,6 +48,7 @@ path: ""
 submitter: Yuri
 submission: ""
 releaseNotes: >-
-  Store renamed to Yuri's Umbrel Apps. Maple Proxy packaging and container
-  both track OpenSecret maple-proxy 0.3.2 (multi-arch: linux/amd64 for Umbrel
-  Home, linux/arm64 for Raspberry Pi).
+  Tracks Maple Privacy Labs maple-proxy 0.5.1 (Transport V2). Maple's hosted
+  backend no longer serves Transport V1, so the previous 0.3.2 image cannot
+  connect. Container is now ghcr.io/mapleprivacylabs/maple-proxy:0.5.1
+  (multi-arch: linux/amd64 for Umbrel Home, linux/arm64 for Raspberry Pi).

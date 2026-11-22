@@ -13,7 +13,7 @@ services:
 
   server:
     # Tag and index digest pinned together (multi-arch: linux/amd64 + linux/arm64).
-    image: ghcr.io/opensecretcloud/maple-proxy:0.3.2@sha256:cdde1f73418cd92794963cda32c2b50c5b2548eb78aab6060026d76a391af73a
+    image: ghcr.io/mapleprivacylabs/maple-proxy:0.5.1@sha256:2fdff64378e418c4baf4542a5f1f933175f6592107736077eadadcda57b25c3c
     restart: on-failure
     stop_grace_period: 1m
     environment:
